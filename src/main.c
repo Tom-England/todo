@@ -14,8 +14,6 @@ int main(int argc, char* argv[]){
     if (!file_exists(filename)){
         printf("Creating todo.list...\n");
         create_file(filename);
-    } else {
-        printf("File already exists\n");
     }
     
     // Handle args
@@ -24,9 +22,9 @@ int main(int argc, char* argv[]){
         printf("Please supply arguments, see -help for details\n");
         return EXIT_FAILURE;
     }
-    printf("%s\n", argv[1]);
+    //printf("%s\n", argv[1]);
     if (strcmp(argv[1], "list\n")){
-        printf("Starting list function\n");
+        //printf("Starting list function\n");
         fp = fopen(filename, "r");
         list(fp);
         fclose(fp);
