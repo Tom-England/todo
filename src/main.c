@@ -17,18 +17,29 @@ int main(int argc, char* argv[]){
     }
     
     // Handle args
-
     if (argc < 2){
         printf("Please supply arguments, see -help for details\n");
         return EXIT_FAILURE;
     }
-    //printf("%s\n", argv[1]);
-    if (strcmp(argv[1], "list\n")){
-        //printf("Starting list function\n");
+    
+    printf("Argv[1]: %s\n", argv[1]);
+    if (strcmp(argv[1], "list\n") == 0 || strcmp(argv[1], "list") == 0){
+        printf("Starting list function\n");
         fp = fopen(filename, "r");
         list(fp);
-        fclose(fp);
     }
-
+    else if (strcmp(argv[1], "add" ) == 0|| strcmp(argv[1], "add\n") == 0){
+        if (argc != 3) {
+            printf("No message supplied, exiting...\n");
+            return EXIT_FAILURE;
+        }
+        fp = fopen(filename, "a");
+        add_line(fp, argv[2]);
+    }
+    else {
+        printf("Unknown Command\n");
+        return EXIT_FAILURE;
+    }
+    fclose(fp);
     return EXIT_SUCCESS;
 }
