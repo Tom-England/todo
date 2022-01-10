@@ -38,6 +38,7 @@ void add_line(FILE* fp, const char* msg){
         char new_msg[MAX_MESSAGE_LENGTH + 2];
         buffer = extract_msg(msg, MAX_MESSAGE_LENGTH, 0);
         strcpy(new_msg, buffer);
+        free(buffer);
         new_msg[MAX_MESSAGE_LENGTH] = '\n';
         new_msg[MAX_MESSAGE_LENGTH + 1] = '\0';
         //printf("Adding: %s", new_msg);
