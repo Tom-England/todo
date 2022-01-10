@@ -5,7 +5,7 @@
 #include "todo_functions.h"
 
 int main(int argc, char* argv[]){
-    printf("Starting todo...\n");
+    //printf("Starting todo...\n");
 
     const char* filename = "/home/tom/share/todo/bin/todo.list";
 
@@ -22,9 +22,9 @@ int main(int argc, char* argv[]){
         return EXIT_FAILURE;
     }
     
-    printf("Argv[1]: %s\n", argv[1]);
+    //printf("Argv[1]: %s\n", argv[1]);
     if (strcmp(argv[1], "list\n") == 0 || strcmp(argv[1], "list") == 0){
-        printf("Starting list function\n");
+        //printf("Starting list function\n");
         fp = fopen(filename, "r");
         list(fp);
     }

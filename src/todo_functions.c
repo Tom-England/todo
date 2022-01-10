@@ -14,6 +14,7 @@ char* extract_msg(const char* msg, int length, int offset){
 
 void list(FILE* fp){
     //printf("Running list...\n");
+    printf("\n");
     char* done = "[ ]";
     char buffer[MAX_LINE_LENGTH];
     char* status = fgets(buffer, MAX_LINE_LENGTH, fp);
@@ -22,7 +23,7 @@ void list(FILE* fp){
         if (buffer[0] == '1') {done = "[x]";}
         else { done = "[ ]";}
         char* msg = extract_msg(buffer, MAX_MESSAGE_LENGTH + 2, 2);
-        printf("%d| %s %s", counter, done, msg);
+        printf("%4d| %s %s", counter, done, msg);
         free(msg);
         counter++;
         status = fgets(buffer, MAX_LINE_LENGTH, fp);
@@ -32,14 +33,14 @@ void list(FILE* fp){
 
 void add_line(FILE* fp, const char* msg){
     if (strlen(msg) > MAX_MESSAGE_LENGTH - 2){
-        printf("Msg too long...\nCutting to %d\n", MAX_MESSAGE_LENGTH);
+        //printf("Msg too long...\nCutting to %d\n", MAX_MESSAGE_LENGTH);
         char* buffer;
         char new_msg[MAX_MESSAGE_LENGTH + 2];
         buffer = extract_msg(msg, MAX_MESSAGE_LENGTH, 0);
         strcpy(new_msg, buffer);
         new_msg[MAX_MESSAGE_LENGTH] = '\n';
         new_msg[MAX_MESSAGE_LENGTH + 1] = '\0';
-        printf("Adding: %s", new_msg);
+        //printf("Adding: %s", new_msg);
         fprintf(fp, "0 %s", new_msg);
     } else {
         fprintf(fp, "0 %s\n", msg);
