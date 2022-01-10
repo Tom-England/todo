@@ -36,6 +36,15 @@ int main(int argc, char* argv[]){
         fp = fopen(filename, "a");
         add_line(fp, argv[2]);
     }
+    else if (strcmp(argv[1], "tick" ) == 0|| strcmp(argv[1], "tick\n") == 0){
+        if (argc != 3) {
+            printf("No Line ID supplied, exiting...\n");
+            return EXIT_FAILURE;
+        }
+        fp = fopen(filename, "r+");
+        int id = strtol(argv[2], NULL, 10);
+        set_complete(fp, id );
+    }
     else {
         printf("Unknown Command\n");
         return EXIT_FAILURE;

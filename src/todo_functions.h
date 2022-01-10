@@ -13,3 +13,5 @@ void list(FILE* fp);
 char* extract_msg(const char* msg, int length, int offset);
 
 void add_line(FILE* fp, const char* msg);
+
+void set_complete(FILE* fp, int id);

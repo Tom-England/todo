@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "file_handler.h"
 char* extract_msg(const char* msg, int length, int offset){
     char* new_string = (char*)calloc(length, sizeof(char));
     for (int c = 0; c < length; c++){
@@ -46,5 +46,31 @@ void add_line(FILE* fp, const char* msg){
     } else {
         fprintf(fp, "0 %s\n", msg);
     }
+}
+
+void set_complete(FILE* fp, int id){
+    if (id < 0) {
+        printf("Invalid line entered\n");
+    }
+    char* status;
+    char buffer[MAX_LINE_LENGTH];
+    if (id > 0) {
+        status = fgets(buffer, MAX_LINE_LENGTH, fp);
+        int counter = 1;
+        while (status != NULL && counter < id){
+            //printf("buffer: %s\n", buffer);
+            counter++;
+            status = fgets(buffer, MAX_LINE_LENGTH, fp);
+        }
+        char empty[MAX_LINE_LENGTH];
+    }
     
+    if (toggle_flag(fp) == EXIT_SUCCESS){
+        char* done = "[ ]";
+        fgets(buffer, MAX_LINE_LENGTH, fp);
+        if (buffer[0] == '1') {done = "[\e[1;92m✓\e[0;37m]";}
+        else { done = "[ ]";}
+        char* msg = extract_msg(buffer, MAX_MESSAGE_LENGTH + 2, 2);
+        printf("\n%4d| %s %s\n", id, done, msg);
+    }
 }
