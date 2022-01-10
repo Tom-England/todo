@@ -20,7 +20,7 @@ void list(FILE* fp){
     char* status = fgets(buffer, MAX_LINE_LENGTH, fp);
     int counter = 0;
     while (status != NULL){
-        if (buffer[0] == '1') {done = "[x]";}
+        if (buffer[0] == '1') {done = "[\e[1;92m✓\e[0;37m]";}
         else { done = "[ ]";}
         char* msg = extract_msg(buffer, MAX_MESSAGE_LENGTH + 2, 2);
         printf("%4d| %s %s", counter, done, msg);
