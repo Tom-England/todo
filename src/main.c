@@ -3,11 +3,16 @@
 #include <string.h>
 #include "file_handler.h"
 #include "todo_functions.h"
+#include "config.h"
 
 int main(int argc, char* argv[]){
     //printf("Starting todo...\n");
 
-    const char* filename = "/home/tom/share/todo/bin/todo.list";
+    const char* filename = handle_config();
+    
+    if (filename == NULL) {
+        return EXIT_FAILURE;
+    }
 
     FILE* fp;
     
@@ -45,10 +50,18 @@ int main(int argc, char* argv[]){
         int id = strtol(argv[2], NULL, 10);
         set_complete(fp, id );
     }
+    else if (strcmp(argv[1], "-h" ) == 0|| strcmp(argv[1], "-h\n") == 0 ||strcmp(argv[1], "--help" ) == 0|| strcmp(argv[1], "--help\n" ) == 0){
+        printf("-h, --help  :   prints this menu\n\
+add <message>   :   adds an item to the list\n\
+list    :   Shows all list items\n\
+tick <id>   :   Toggles the items ticked state\n");
+        return EXIT_SUCCESS;
+    }
     else {
-        printf("Unknown Command\n");
+        printf("Unknown Command, use -h or --help for more\n");
         return EXIT_FAILURE;
     }
     fclose(fp);
+    
     return EXIT_SUCCESS;
 }
