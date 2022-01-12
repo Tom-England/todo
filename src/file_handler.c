@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include "file_handler.h"
+
 bool file_exists(const char* filepath){
     FILE *file;
     if (file = fopen(filepath, "r"))

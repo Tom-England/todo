@@ -3,6 +3,7 @@
 #include <linux/limits.h>
 #include <string.h>
 
+#include "config.h"
 #include "file_handler.h"
 
 char* get_config_location(){
