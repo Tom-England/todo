@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "file_handler.h"
+
 char* extract_msg(const char* msg, int length, int offset){
     char* new_string = (char*)calloc(length, sizeof(char));
     for (int c = 0; c < length; c++){
