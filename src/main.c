@@ -50,6 +50,15 @@ int main(int argc, char* argv[]){
         int id = strtol(argv[2], NULL, 10);
         set_complete(fp, id );
     }
+    else if (strcmp(argv[1], "remove" ) == 0|| strcmp(argv[1], "remove\n") == 0){
+        if (argc != 3) {
+            printf("No Line ID supplied, exiting...\n");
+            return EXIT_FAILURE;
+        }
+        fp = fopen(filename, "r+");
+        int id = strtol(argv[2], NULL, 10);
+        remove_line(fp, id );
+    }
     else if (strcmp(argv[1], "-h" ) == 0|| strcmp(argv[1], "-h\n") == 0 ||strcmp(argv[1], "--help" ) == 0|| strcmp(argv[1], "--help\n" ) == 0){
         printf("-h, --help  :   prints this menu\n\
 add <message>   :   adds an item to the list\n\

@@ -77,9 +77,10 @@ void set_complete(FILE* fp, int id){
 }
 
 void remove_line(FILE* fp, const int id){
-    if (id < 0) {
-        printf("Invalid line entered\n");
-        return;
-    }
-    
+    // To Remove a line from a file with C,
+    // The prevailing idea seems to be reading the whole
+    // file into an array, except the line to be removed
+    // Then writing the array back into the file, overwriting what
+    // used to be there...
+    // Sounds legit
 }
