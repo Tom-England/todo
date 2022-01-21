@@ -39,3 +39,11 @@ void add_line(FILE* fp, const char* msg);
  * @param id line number of the message to toggle the status of
  */
 void set_complete(FILE* fp, int id);
+
+/**
+ * @brief Removes the specified line from the todo.list file
+ * 
+ * @param fp pointer to the opened todo.list file
+ * @param id line number of the message to remove from the file
+*/
+void remove_line(FILE* fp, const int id);

@@ -75,3 +75,11 @@ void set_complete(FILE* fp, int id){
         printf("\n%4d| %s %s\n", id, done, msg);
     }
 }
+
+void remove_line(FILE* fp, const int id){
+    if (id < 0) {
+        printf("Invalid line entered\n");
+        return;
+    }
+    
+}
