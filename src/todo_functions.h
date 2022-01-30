@@ -46,4 +46,4 @@ void set_complete(FILE* fp, int id);
  * @param fp pointer to the opened todo.list file
  * @param id line number of the message to remove from the file
 */
-void remove_line(FILE* fp, const int id);
+void remove_line(FILE* fp, const int id, const char* filepath);
