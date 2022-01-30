@@ -105,8 +105,6 @@ void remove_line(FILE* fp, const int id, const char* filepath){
         }
         line_count++;
     }
-    printf("%p\n", head);
-    printList(head);
     // Reopen the file for writing to clear it
     freopen(filepath, "w", fp);
     // Reopen it again for appending
