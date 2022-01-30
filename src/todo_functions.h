@@ -20,7 +20,7 @@ void list(FILE* fp);
  * @param offset starting position of the desired substring
  * @return char* substring of provided msg
  */
-char* extract_msg(const char* msg, int length, int offset);
+char* extract_msg(const char* msg, const unsigned int length, const unsigned int offset);
 
 /**
  * @brief Adds a user-provided message to the end of the todo.list file along with the tick flag at the start
@@ -38,7 +38,7 @@ void add_line(FILE* fp, const char* msg);
  * @param fp pointer to the opened todo.list file
  * @param id line number of the message to toggle the status of
  */
-void set_complete(FILE* fp, int id);
+void set_complete(FILE* fp, const unsigned int id);
 
 /**
  * @brief Removes the specified line from the todo.list file
@@ -46,4 +46,4 @@ void set_complete(FILE* fp, int id);
  * @param fp pointer to the opened todo.list file
  * @param id line number of the message to remove from the file
 */
-void remove_line(FILE* fp, const int id, const char* filepath);
+void remove_line(FILE* fp, const unsigned int id, const char* filepath);

@@ -7,7 +7,7 @@
 
 #include "linkedlist.h"
 
-char* extract_msg(const char* msg, int length, int offset){
+char* extract_msg(const char* msg, const unsigned int length, const unsigned int offset){
     char* new_string = (char*)calloc(length, sizeof(char));
     for (int c = 0; c < length; c++){
         new_string[c] = msg[offset + c];
@@ -51,7 +51,7 @@ void add_line(FILE* fp, const char* msg){
     }
 }
 
-void set_complete(FILE* fp, int id){
+void set_complete(FILE* fp, const unsigned int id){
     if (id < 0) {
         printf("Invalid line entered\n");
     }
@@ -78,7 +78,7 @@ void set_complete(FILE* fp, int id){
     }
 }
 
-void remove_line(FILE* fp, const int id, const char* filepath){
+void remove_line(FILE* fp, const unsigned int id, const char* filepath){
     // To Remove a line from a file with C,
     // The prevailing idea seems to be reading the whole
     // file into an array, except the line to be removed
@@ -93,9 +93,7 @@ void remove_line(FILE* fp, const int id, const char* filepath){
     char buffer[MAX_LINE_LENGTH];
     char* status = "";
     while (status != NULL){
-        //printf("Line Count: %d\n", line_count);
         status = fgets(buffer, MAX_LINE_LENGTH, fp);
-        //printf("Buffer: %s\n", buffer);
         if (line_count != id){
             if (head == NULL){
                 head = pushNode(head, buffer);
@@ -111,8 +109,6 @@ void remove_line(FILE* fp, const int id, const char* filepath){
     freopen(filepath, "a", fp);
     for (int i = 0; i < getLength(head) - 1; i++){
         char* buffer2 = peek(head, i);
-        //printf("Writing %s\n", buffer2);
         fprintf(fp, "%s", buffer2);
     }
-    //count_lines(fp);
 }
