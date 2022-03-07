@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <linux/limits.h>
 
 #include "file_handler.h"
 
@@ -32,4 +33,10 @@ int toggle_flag(FILE* fp){
     fputc(to_write, fp);
     fsetpos(fp, &position);
     return EXIT_SUCCESS;
+}
+
+void switch_list(FILE* fp, const char id){
+    char buffer[PATH_MAX];
+    fgets(buffer, PATH_MAX, fp);
+    fputc(id, fp);
 }

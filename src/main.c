@@ -60,12 +60,19 @@ int main(int argc, char* argv[]){
         remove_line(fp, id, filename);
     }
     else if (strcmp(argv[1], "swap") == 0 || strcmp(argv[1], "swap\n") == 0) {
+        if (argc != 3) {
+            printf("No Line ID supplied, exiting...\n");
+            return EXIT_FAILURE;
+        }
+
         char* config_path = get_config_location();
         printf("config path: %s\n", config_path);
 
         fp = fopen(config_path, "r");
         char id = get_list_id(fp);
         printf("ID: %c\n", id);
+        freopen(config_path, "r+", fp);
+        switch_list(fp, argv[2][0]);
         //free(config_path);
     }
 

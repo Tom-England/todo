@@ -30,4 +30,4 @@ int toggle_flag(FILE* fp);
  * 
  * @param id of the list to read
  */
-void switch_list(const unsigned int id);
+void switch_list(FILE* fp, const char id);
