@@ -1,6 +1,7 @@
 # ToDo
 
 This is a program for creating a simple todo list at the command line
+Supports multiple lists
 
 ### Usage
 
@@ -12,13 +13,18 @@ Add an item: `todo add "your message here"`
 
 Show all items: `todo list`
 
-Set an item as complete: `todo tick message_id_here`
+Set an item as complete: `todo tick <id>`
+
+Remove an item: `todo remove <id>`
+
+Swap to a different list: `todo swap <id>`
 
 ### Current Features
 
 - Add or remove an item in the list
 - Set items as complete
 - Display all items
+- Multiple lists
 
 ### Planned Features
 

@@ -80,7 +80,9 @@ int main(int argc, char* argv[]){
         printf("-h, --help  :   prints this menu\n\
 add <message>   :   adds an item to the list\n\
 list    :   Shows all list items\n\
-tick <id>   :   Toggles the items ticked state\n");
+tick <id>   :   Toggles the items ticked state\n\
+remove <id> :   Removes the list item at the specified ID\n\
+swap <id>   :   Swaps the current list to the specified ID\n");
         return EXIT_SUCCESS;
     }
     else {
