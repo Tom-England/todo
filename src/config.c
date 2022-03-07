@@ -19,9 +19,11 @@ char* get_list_location(FILE* fp){
     //printf("Getting list location\n");
     char* file_location = (char*) calloc (PATH_MAX, sizeof(char));
     fgets(file_location, PATH_MAX, fp);
-    //printf("Found %s\n", file_location);
+    rewind(fp);
+    char id = get_list_id(fp);
     fclose(fp);
-    file_location[strcspn(file_location, "\n")] = 0;
+    file_location[strcspn(file_location, "\n")] = id;
+    //printf("Found %s\n", file_location);
     return file_location;
 }
 

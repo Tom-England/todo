@@ -66,11 +66,11 @@ int main(int argc, char* argv[]){
         }
 
         char* config_path = get_config_location();
-        printf("config path: %s\n", config_path);
+        //printf("config path: %s\n", config_path);
 
         fp = fopen(config_path, "r");
         char id = get_list_id(fp);
-        printf("ID: %c\n", id);
+        //printf("ID: %c\n", id);
         freopen(config_path, "r+", fp);
         switch_list(fp, argv[2][0]);
         //free(config_path);
