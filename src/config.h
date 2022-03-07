@@ -23,3 +23,10 @@ char* handle_config();
  * @return char* filepath for the desired list location
  */
 char* get_list_location(FILE* fp);
+
+/**
+ * @brief Get the list id object
+ * 
+ * @return char 
+ */
+char get_list_id(FILE* fp);

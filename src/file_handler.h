@@ -24,3 +24,10 @@ void create_file(const char* filepath);
  * @return int success of method
  */
 int toggle_flag(FILE* fp);
+
+/**
+ * @brief Toggles the current list to read
+ * 
+ * @param id of the list to read
+ */
+void switch_list(const unsigned int id);

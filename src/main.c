@@ -59,6 +59,16 @@ int main(int argc, char* argv[]){
         int id = strtol(argv[2], NULL, 10);
         remove_line(fp, id, filename);
     }
+    else if (strcmp(argv[1], "swap") == 0 || strcmp(argv[1], "swap\n") == 0) {
+        char* config_path = get_config_location();
+        printf("config path: %s\n", config_path);
+
+        fp = fopen(config_path, "r");
+        char id = get_list_id(fp);
+        printf("ID: %c\n", id);
+        //free(config_path);
+    }
+
     else if (strcmp(argv[1], "-h" ) == 0|| strcmp(argv[1], "-h\n") == 0 ||strcmp(argv[1], "--help" ) == 0|| strcmp(argv[1], "--help\n" ) == 0){
         printf("-h, --help  :   prints this menu\n\
 add <message>   :   adds an item to the list\n\
